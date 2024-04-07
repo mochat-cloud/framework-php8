@@ -1,0 +1,51 @@
+{
+    "name": "mochat/framework",
+    "type": "library",
+    "keywords": [
+        "php",
+        "hyperf",
+        "mochat",
+        "framework"
+    ],
+    "description": "framework of mochat",
+    "autoload": {
+        "psr-4": {
+            "MoChat\\Framework\\": "src/"
+        },
+        "files": [
+            "src/Functions.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "HyperfTest\\": "tests"
+        }
+    },
+    "require": {
+        "php": ">=8.0",
+        "ext-swoole": ">=4.5"
+    },
+    "require-dev": {
+        "96qbhy/hyperf-auth": "^3.0",
+        "friendsofphp/php-cs-fixer": "^2.14",
+        "hyperf/framework": "3.1.*",
+        "hyperf/testing": "3.1.*",
+        "overtrue/wechat": "~5.0",
+        "phpstan/phpstan": "^0.12",
+        "swoole/ide-helper": "dev-master",
+        "hyperf/guzzle": "3.1.*"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "scripts": {
+        "test": "co-phpunit -c phpunit.xml --colors=always",
+        "analyse": "phpstan analyse --memory-limit 1024M -l 0 ./src",
+        "cs-fix": "php-cs-fixer fix $1"
+    },
+    "extra": {
+        "hyperf": {
+            "config": "MoChat\\Framework\\ConfigProvider"
+        }
+    }
+}
