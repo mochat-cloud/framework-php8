@@ -70,11 +70,13 @@ class Callback extends AbstractAction
 
     public function getWxServer(): Guard
     {
-        return $this->client->app()->server;
+        $config['oauth']['callback'] = '';
+        return $this->client->app($config)->server;
     }
 
     public function setWxServer(array $config = []): void
     {
+        empty($config['oauth']['callback']) && $config['oauth']['callback'] = '';
         $this->wxServer = $this->client->app($config)->server;
     }
 
